@@ -8,10 +8,25 @@ use App\Http\Requests\validationPost;
 
 class PostsController extends Controller
 {
-    public function index()
-    {
-        $posts = Post::all();
+    // public function index()
+    // {
+    //     $posts = Post::all();
 
+    //     return view('posts.index', compact('posts'));
+    // }
+
+// 検索処理の実装
+
+public function index(Request $request)
+    {
+        $keyword = $request->keyword;
+
+        if($keyword == null){
+            $posts = Post::all();
+        }else{
+            $posts = Post::where('title', 'like', '%' . $keyword . '%')->get();
+        }
+        
         return view('posts.index', compact('posts'));
     }
 
@@ -51,8 +66,8 @@ class PostsController extends Controller
         $post = Post::create($request->all());
         $post ->save();
         $request->session()->flash('message','記事の登録が完了しました。');
-        // return redirect()->route('posts.show',[$post->id]);
-        return redirect()->route('posts.index'); 
+        // return redirect()->route('posts.show',[$post->id]); flashメッセージ未確認保留コメントアウト
+         return redirect()->route('posts.index'); 
     }
     
 }

@@ -16,3 +16,16 @@ Route::get('/', function () {
 });
 
 Route::resource('posts','PostsController');
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+//index,showはログインせずアクセス可能
+Route::resource('posts','PostsController',['only' => ['index','show']]);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+});
+
+Auth::routes();
+
+
