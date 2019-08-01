@@ -25,7 +25,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/posts';
+    protected $redirectTo = '/';
+    // protected $redirectTo = 'http://192.168.33.10/posts';
 
     /**
      * Create a new controller instance.
@@ -47,4 +48,32 @@ class LoginController extends Controller
         session(['url.intended' => $_SERVER['HTTP_REFERER']]); 
         return view('auth.login');
     }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    // public function logout(Request $request)
+    // {
+    //     $this->guard()->logout();
+    //     $request->session()->invalidate();
+    //     return $this->loggedOut($request) ?: redirect('/posts');
+    // エラーが出たのでコメントアウト
+    // }
+
+//    /**
+//      * The user has logged out of the application.
+//      *
+//      * @param  \Illuminate\Http\Request  $request
+//      * @return mixed
+//      */
+//     protected function loggedOut(Request $request)
+//     {
+//         return $this->loggedOut($request) ?: redirect('/posts');
+//     }
+
+
 }
+
