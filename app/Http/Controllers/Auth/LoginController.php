@@ -25,8 +25,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/posts';
-    // protected $redirectTo = 'http://192.168.33.10/posts';
+    // protected $redirectTo = '/posts';
+    protected $redirectTo = 'http://192.168.33.10/posts';
 
     /**
      * Create a new controller instance.
@@ -69,10 +69,10 @@ class LoginController extends Controller
 //      * @param  \Illuminate\Http\Request  $request
 //      * @return mixed
 //      */
-//     protected function loggedOut(Request $request)
-//     {
-//         return $this->loggedOut($request) ?: redirect('/posts');
-//     }
+    // protected function loggedOut(Request $request)
+    // {
+    //     return $this->loggedOut($request) ?: redirect('/posts');
+    // }
 
 
 }

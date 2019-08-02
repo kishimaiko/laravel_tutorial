@@ -16,15 +16,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', 'PostController@index');
-Route::post('/posts', 'PostController@index');
+Route::get('/posts', 'PostController');
+Route::post('/posts', 'PostController');
 
 // Route::resource('/posts','PostsController');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController')->name('home');
 
-//index,showはログインせずアクセス可能_groupで定義したのでコメントアウト
-Route::resource('posts','PostsController',['only' => ['index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+//index,showはログインせずアクセス可能
+// Route::resource('posts','PostsController', ['only' => ['index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
 
 Route::group(['middleware' => 'auth'], function () {
     
