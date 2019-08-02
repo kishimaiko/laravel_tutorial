@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/posts';
     // protected $redirectTo = 'http://192.168.33.10/posts';
 
     /**

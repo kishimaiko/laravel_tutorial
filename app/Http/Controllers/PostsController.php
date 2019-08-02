@@ -29,6 +29,7 @@ public function index(Request $request)
         
         return view('posts.index', compact('posts'));
     }
+    // ログイン機能実装
 
 
    public function create()

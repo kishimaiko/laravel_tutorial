@@ -68,7 +68,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('http://192.168.33.10/posts') }}">Home</a>
+                    <!-- ＊auth後のリンクがうまくいかないのでコメントアウト -->
+                        <a href="{{ url('/posts') }}">Posts</a> 
+                        <!-- <a href="{{ url('http://192.168.33.10/posts') }}">Posts</a> -->
                     @else
                         <a href="{{ route('login') }}">Login</a>
 

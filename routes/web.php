@@ -12,24 +12,27 @@
 */
 
 Route::get('/', function () {
+    // return view('welcome');
     return view('welcome');
 });
 
-Route::resource('posts','PostsController');
+// Route::resource('posts','PostsController');
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-//index,showはログインせずアクセス可能
-Route::resource('posts','PostsController',['only' => ['index','show']]);
+//index,showはログインせずアクセス可能_groupで定義したのでコメントアウト
+// Route::resource('posts','PostsController',['only' => ['index','show']]);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+    
+    Route::auth();
+    
+    Route::resource('/posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+    //   Route::resource('/posts', 'PostsController', ['only' => [index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
+    // Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
+    
 });
 
 Auth::routes();
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

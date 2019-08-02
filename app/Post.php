@@ -11,7 +11,7 @@ class Post extends Model
      *
      * @var string
      */
-    protected $table = 'posts';
+    protected $table = 'posts' ; 
 
     /**
      * 代入を許可するカラム
