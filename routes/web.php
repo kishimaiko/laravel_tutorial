@@ -15,9 +15,15 @@ Route::get('/', function () {
     // return view('welcome');
     return view('welcome');
 });
+  Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
 
-Route::get('/posts', 'PostController');
-Route::post('/posts', 'PostController');
+
+  // GET メソッドは定義済
+// Route::get('/posts', 'PostsController@show');
+
+// // POST メソッドも定義する
+// Route::post('/posts', 'PostsController@store');
+
 
 // Route::resource('/posts','PostsController');
 
@@ -27,12 +33,13 @@ Route::post('/posts', 'PostController');
 // Route::resource('posts','PostsController', ['only' => ['index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
 
 Route::group(['middleware' => 'auth'], function () {
-    
+
+    // make:authでRouteが生成される。以下で自動作成。
     Route::auth();
     
     Route::resource('/posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
     //   Route::resource('/posts', 'PostsController', ['only' => [index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
-    // Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
+  
     
 });
 
