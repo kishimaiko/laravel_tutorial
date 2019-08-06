@@ -25,8 +25,8 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/posts';
-    protected $redirectTo = '/posts@index';
+    protected $redirectTo = '/posts';
+    // protected $redirectTo = '/posts@index';
     // protected $redirectTo = 'http://192.168.33.10/posts';
 
     /**

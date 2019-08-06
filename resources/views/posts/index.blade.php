@@ -25,7 +25,7 @@
       <!-- </div> -->
     　@endif
 
-     <!-- \Session::flash('flash_message', '記事を更新しました。'); -->
+     \Session::flash('flash_message', '記事を更新しました。');
 
 
         {{ Form::open(['route' => ['posts.index'], 'method' => 'get']) }}
