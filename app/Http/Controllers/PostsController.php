@@ -67,6 +67,7 @@ public function index(Request $request)
         $post = Post::create($request->all());
         $post ->save();
         $request->session()->flash('message','記事の登録が完了しました。');
+        
         // return redirect()->route('posts.show',[$post->id]); flashメッセージ未確認保留コメントアウト
          return redirect()->route('posts.index'); 
     }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('app')
+@section('content')
 
 <h1>posts.index</h1>
 
@@ -25,7 +25,7 @@
       <!-- </div> -->
     　@endif
 
-     \Session::flash('flash_message', '記事を更新しました。');
+     <!-- \Session::flash('flash_message', '記事を更新しました。'); -->
 
 
         {{ Form::open(['route' => ['posts.index'], 'method' => 'get']) }}
@@ -34,10 +34,6 @@
       {{ Form::submit('検索') }}
     {{ Form::close() }}
     </li>
-
-
-
-
 
     </ul>
 
