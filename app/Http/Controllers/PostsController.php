@@ -59,7 +59,7 @@ public function index(Request $request)
 
     public function show(Post $post)
        {
-         return view('posts.show', compact('post','comments'));
+        return view('posts.show', compact('post','comments'));
     }
 
     public function store(validationPost $request)
@@ -68,7 +68,7 @@ public function index(Request $request)
         $post ->save();
         $request->session()->flash('message','記事の登録が完了しました。');
         
-        // return redirect()->route('posts.show',[$post->id]); flashメッセージ未確認保留コメントアウト
+         return redirect()->route('posts.show',[$post->id]); 
          return redirect()->route('posts.index'); 
     }
     

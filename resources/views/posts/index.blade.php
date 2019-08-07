@@ -7,7 +7,6 @@
         <ul>
         @foreach ($posts as $post)
             <li>
-                {{ link_to_route('posts.create', '[new post]') }}
                 {{ link_to_route('posts.show', $post->title, [$post->id]) }}
                 {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
                 {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
@@ -15,6 +14,10 @@
                 {{ Form::close() }}
             </li>
         @endforeach
+
+        <li>
+            {{ link_to_route('posts.create', '[new post]') }}
+        </li>
 
         @if (Session::has('flash_message'))
                 {{ Session::get('flash_message') }}

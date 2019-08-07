@@ -15,22 +15,16 @@ Route::get('/', function () {
     // return view('welcome');
     return view('welcome');
 });
-  Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
+  // Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
 
 
-  // GET メソッドは定義済
+//   // GET メソッドは定義済
 // Route::get('/posts', 'PostsController@show');
 
-// // POST メソッドも定義する
+// // // POST メソッドも定義する
 // Route::post('/posts', 'PostsController@store');
 
-
 // Route::resource('/posts','PostsController');
-
-// Route::get('/home', 'HomeController')->name('home');
-
-//index,showはログインせずアクセス可能
-// Route::resource('posts','PostsController', ['only' => ['index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -40,8 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/posts', 'PostsController', ['only' => ['store', 'create', 'update', 'destroy', 'delete', 'edit']]);
     //   Route::resource('/posts', 'PostsController', ['only' => [index','show','store', 'create', 'update', 'destroy', 'delete', 'edit']]);
   
-    
 });
+
+Route::resource('/posts', 'PostsController', ['only' => ['index','show']]);
 
 Auth::routes();
 
