@@ -13,14 +13,16 @@
         {{ Form::textarea('content', $post->content) }}
     </div>
 
-    {{ Form::submit('update') }}
+{{ Form::submit('update') }}
 {{ Form::close() }}
 
-<!-- @if($errors->has('title'))
+
+@if($errors->has('title'))
 <span class="text-danger">{{ $errors->first('title') }}</span>
-@endif -->
+@endif 
 @if($errors->has('content'))
 <span class="text-danger">{{ $errors->first('content') }}</span>
 @endif
+
 
 @endsection
