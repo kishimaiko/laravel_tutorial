@@ -74,3 +74,13 @@ public function index(Request $request)
     
 }
 
+// {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
+//             <div class="form-inline">
+//               <span>日付絞り込み</span>
+//                 {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
+//                {{ Form::date('fromDate', $fromDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+//                   <span>〜</span>  {{ Form::date('toDate', $toDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+//                 {{ Form::text('keywords', '', ['type' => 'search', 'class' => 'form-control', 'placeholder' => 'タイトル・内容']) }}
+//                 {{ Form::submit('search', ['class' => 'btn']) }}
+//             </div>
+// {{ Form::close() }}

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('app')
 
 <h1>posts.index</h1>
 
@@ -34,6 +34,8 @@
       {{ Form::submit('検索') }}
     {{ Form::close() }}
     </li>
+
+
 
     </ul>
 
