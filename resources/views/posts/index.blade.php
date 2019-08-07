@@ -16,12 +16,12 @@
             </li>
         @endforeach
 
-        <!-- @if (Session::has('flash_message'))
+        @if (Session::has('flash_message'))
                 {{ Session::get('flash_message') }}
-        @endif -->
-    　@if(Session::has('message'))
+        @endif
+    <!-- 　@if(Session::has('message')) -->
        <!-- <div class="alert alert-success"> -->
-          {{ session('message') }}
+          <!-- {{ session('message') }} -->
       <!-- </div> -->
     　@endif
 
