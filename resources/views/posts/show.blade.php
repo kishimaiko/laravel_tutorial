@@ -6,7 +6,7 @@
 <!-- {{ Form::submit('back') }}
 {{ Form::close() }} -->
 
-{{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
+ {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
  {{ link_to_route('posts.index', '[Back]') }}
 
 

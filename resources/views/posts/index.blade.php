@@ -51,6 +51,10 @@
             </div>
 {{ Form::close() }}
 
+<div class="paginate">
+{{ $posts->links() }}
+</div>
+
 
     </ul>
 
