@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('app')
-<h1>posts.create</h1>
+<h1>NewBlog</h1>
 {{ Form::open(['route'=>'posts.store']) }}
 {{ csrf_field() }}
 <div>
@@ -11,6 +11,7 @@
 </div>
 {{ Form::submit('create') }}
 {{ Form::close() }}
+{{ link_to_route('posts.index', '[Back]') }}
 @endsection
 
 @if($errors->has('title'))
