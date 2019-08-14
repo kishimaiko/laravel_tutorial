@@ -2,7 +2,7 @@
 
 @section('app')
 
-<h1>posts.edit</h1>
+<h1>blog.edit</h1>
 
 {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
     <div>
