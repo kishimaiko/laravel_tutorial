@@ -2,7 +2,7 @@
 
 @section('app')
 
-<h1>posts.index</h1>
+<h1>blog list</h1>
 
         <ul>
         @foreach ($posts as $post)
@@ -17,6 +17,7 @@
 
         <li>
             {{ link_to_route('posts.create', '[new post]') }}
+            {{ link_to_route('posts.index', '[back]') }}
         </li>
 
         @if (Session::has('flash_message'))
@@ -31,13 +32,24 @@
      <!-- \Session::flash('flash_message', '記事を更新しました。'); -->
 
 
-        {{ Form::open(['route' => ['posts.index'], 'method' => 'get']) }}
+        <!-- {{ Form::open(['route' => ['posts.index'], 'method' => 'get']) }}
     <li>
       {{ Form::text('keyword', null) }}
       {{ Form::submit('検索') }}
     {{ Form::close() }}
-    </li>
-
+    </li> -->
+    
+    <!-- ↓日付絞り込み機能 -->
+    {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
+            <div class="form-inline">
+              <span>日付絞り込み</span>
+                {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
+               {{ Form::date('fromDate', $fromDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+                  <span>〜</span>  {{ Form::date('toDate', $toDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+                {{ Form::text('keywords', '', ['type' => 'search', 'class' => 'form-control', 'placeholder' => 'タイトル・内容']) }}
+                {{ Form::submit('search', ['class' => 'btn']) }}
+            </div>
+{{ Form::close() }}
 
 
     </ul>

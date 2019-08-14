@@ -7,7 +7,6 @@
 {{ Form::close() }} -->
 
 
-
  {{ link_to_route('posts.index', '[back]') }}
 
 

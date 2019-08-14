@@ -19,15 +19,42 @@ class PostsController extends Controller
 
 public function index(Request $request)
     {
-        $keyword = $request->keyword;
+        // $keyword = $request->keyword;
 
-        if($keyword == null){
-            $posts = Post::all();
-        }else{
-            $posts = Post::where('title', 'like', '%' . $keyword . '%')->get();
-        }
+        // if($keyword == null){
+        //     $posts = Post::all();
+        // }else{
+        //     $posts = Post::where('title', 'like', '%' . $keyword . '%')->get();
+        // }
         
-        return view('posts.index', compact('posts'));
+        // return view('posts.index', compact('posts'));
+
+        // ↓日付絞り込み機能
+        $keywords = $request->get('keywords');
+        $fromDate = $request->get('fromDate');
+        $toDate = $request->get('toDate');
+        $dateCheck = $request->get('dateCheck');
+        $keywords = preg_split("/[\s+]/", str_replace('　', ' ', $keywords));
+        $posts = Post::where(function ($query) use($keywords, $fromDate, $toDate, $dateCheck) {
+            foreach($keywords as $word){
+                if($word){
+                    $query->where('content', 'like', "%{$word}%");
+                }
+            }
+            if($dateCheck){
+                if($fromDate){
+                    $query->whereDate('created_at','>=' ,$fromDate);
+                }
+                if($toDate){
+                    $query->whereDate('created_at', '<=', $toDate);
+                }
+            }
+        })->latest('created_at')->get();
+        return view('posts.index', compact('posts','fromDate', 'toDate'));
+
+
+
+
     }
     // ログイン機能実装
 
