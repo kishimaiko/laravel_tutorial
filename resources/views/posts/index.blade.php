@@ -8,7 +8,7 @@
 
 <h2>タイトル　日付<h2>
 
-<div class="line">　
+<!-- <div class="line">　 -->
         <ul>
         @foreach ($posts as $post)
             <li>
@@ -19,7 +19,7 @@
                 {{ Form::close() }}
             </li>
         @endforeach
-</div>
+<!-- </div> -->
 
         <button type="button" class="btn btn-outline-info">
             {{ link_to_route('posts.create', '[new post]') }}   
