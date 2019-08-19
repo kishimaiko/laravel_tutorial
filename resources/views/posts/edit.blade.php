@@ -2,6 +2,8 @@
 
 @section('app')
 
+<div class="container">
+
 <h1>blog.edit</h1>
 
 {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
@@ -24,5 +26,6 @@
 <span class="text-danger">{{ $errors->first('content') }}</span>
 @endif
 
+</div>
 
 @endsection

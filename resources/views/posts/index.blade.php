@@ -2,8 +2,13 @@
 
 @section('app')
 
+<div class="container">
+
 <h1>blog list</h1>
 
+<h2>タイトル　日付<h2>
+
+<div class="line">　
         <ul>
         @foreach ($posts as $post)
             <li>
@@ -14,20 +19,27 @@
                 {{ Form::close() }}
             </li>
         @endforeach
+</div>
 
-        <li>
-            {{ link_to_route('posts.create', '[new post]') }}
+        <button type="button" class="btn btn-outline-info">
+            {{ link_to_route('posts.create', '[new post]') }}   
+        </div>
+        <button type="button" class="btn btn-outline-info">
             {{ link_to_route('posts.index', '[back]') }}
-        </li>
+        </div>
+  
+
+
 
         @if (Session::has('flash_message'))
                 {{ Session::get('flash_message') }}
         @endif
+</div>
     <!-- 　@if(Session::has('message')) -->
        <!-- <div class="alert alert-success"> -->
           <!-- {{ session('message') }} -->
       <!-- </div> -->
-    　@endif
+    <!-- 　@endif -->
 
      <!-- \Session::flash('flash_message', '記事を更新しました。'); -->
 
