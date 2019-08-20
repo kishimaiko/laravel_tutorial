@@ -1,17 +1,29 @@
 @extends('layouts.app')
 @section('app')
 
-<div class="container">
-<h1>{{ $post->title }}</h1>
-<p>{{ $post->content }}</p>
+    <div class="container">
+            <h2>{{ $post->title }}</h2>
+            <p>{{ $post->content }}</p>
+    </div>
+            <!-- {{ Form::submit('back') }}
+            {{ Form::close() }} -->
 
-<!-- {{ Form::submit('back') }}
-{{ Form::close() }} -->
-
- {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
- {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
-   <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
- {{ link_to_route('posts.index', '[Back]') }}
-
-</container>
+      <div class="container">
+         <div class="row">
+                <div class="float-left">
+                        <div class="row">
+                              <button type="button" class="btn btn-outline-info">
+                                    {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
+                              </div>
+                              <button type="button" class="btn btn-outline-info">
+                                    {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
+                                      <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
+                              </div>
+                              <button type="button" class="btn btn-outline-info">
+                                  {{ link_to_route('posts.index', '[Back]') }}
+                              </div>
+                      </div>
+              </div>
+          </div>
+      </div>
 @endsection
