@@ -9,9 +9,13 @@
 <div>
 {{ Form::textarea('content', $post->content) }}
 </div>
+<button type="button" class="btn btn-outline-info">
 {{ Form::submit('create') }}
 {{ Form::close() }}
+<div>
+<button type="button" class="btn btn-outline-info">
 {{ link_to_route('posts.index', '[Back]') }}
+</div>
 @endsection
 
 @if($errors->has('title'))

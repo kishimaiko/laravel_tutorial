@@ -15,8 +15,10 @@
         {{ Form::textarea('content', $post->content) }}
     </div>
 
+<button type="button" class="btn btn-outline-info">
 {{ Form::submit('update') }}
 {{ Form::close() }}
+</div>
 
 
 @if($errors->has('title'))
