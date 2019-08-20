@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="/css/common.css">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
      <!-- Bootstrap CSS -->
