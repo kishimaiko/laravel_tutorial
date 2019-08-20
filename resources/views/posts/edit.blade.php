@@ -4,9 +4,11 @@
 
 
 
-        <div class="p-3 mb-2 bg-info text-white">
+    <div class="p-3 mb-2 bg-info text-white">
+        <div class="container">
                 <h1>blog.edit</h1>
         </div>
+    </div>
 
     <div class="container">
                     {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
@@ -31,6 +33,11 @@
                 <span class="text-danger">{{ $errors->first('content') }}</span>
                 @endif
 
+    </div>
+
+    <div class="p-3 mb-2 bg-info text-white">
+        <div class="button_add">
+        </div>
     </div>
 
 @endsection

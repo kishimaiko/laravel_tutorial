@@ -33,12 +33,23 @@
                 </div>
             </div>
         </div>
-@endsection
+
+        <div class="p-3 mb-2 bg-info text-white">
+        <div class="button_add">
+        </div>
+    </div>
     </div>
 
-                @if($errors->has('title'))
+
+    @if($errors->has('title'))
                 <span class="text-danger">{{ $errors->first('title') }}</span>
                 @endif
                 @if($errors->has('content'))
                 <span class="text-danger">{{ $errors->first('content') }}</span>
-@endif
+                @endif
+
+@endsection
+
+
+
+
