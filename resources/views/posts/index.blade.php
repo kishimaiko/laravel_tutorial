@@ -3,38 +3,44 @@
 @section('app')
 
 
-            <div class="p-3 mb-2 bg-info text-white">
+        <div class="p-3 mb-2 bg-info text-white">
                 <h1>blog list</h1>
-            </div>
+        </div>
 
         <div class="container">
             <h2>タイトル　日付<h2>
 
-            <ul>
-                @foreach ($posts as $post)
-                        <li>
-                                {{ link_to_route('posts.show', $post->title, [$post->id]) }}
-                            <span class="badge badge-secondary">
-                                {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
-                            </span>
-                            <span class="badge badge-danger">
-                                {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
-                                    <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
-                                {{ Form::close() }}
-                            </span>
-                        </li>
-                @endforeach
-            </ul>
+                    <ul>
+                        @foreach ($posts as $post)
+                                <li>
+                                        {{ link_to_route('posts.show', $post->title, [$post->id]) }}
+                                    <span class="badge badge-secondary">
+                                        {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
+                                    </span>
+                                    <span class="badge badge-danger">
+                                        {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
+                                            <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
+                                        {{ Form::close() }}
+                                    </span>
+                                </li>
+                        @endforeach
+                    </ul>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="float-left">
+                        <button type="button" class="btn btn-outline-info">
+                            {{ link_to_route('posts.create', '[new post]') }}   
+                        </div>
+                        <button type="button" class="btn btn-outline-info">
+                            {{ link_to_route('posts.index', '[back]') }}
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
         
-
-                    <div button type="button" class="btn btn-outline-info">
-                        {{ link_to_route('posts.create', '[new post]') }}   
-                    </div>
-                    <div button type="button" class="btn btn-outline-info">
-                        {{ link_to_route('posts.index', '[back]') }}
-                    </div>
-
-        </div>
 
 
 
@@ -60,17 +66,18 @@
 
 
         <div class="container">
-            <!-- ↓日付絞り込み機能 -->
-            {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
-                <div class="form-inline">
-                    <span>日付絞り込み</span>
-                        {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
-                    {{ Form::date('fromDate', $fromDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
-                        <span>〜</span>  {{ Form::date('toDate', $toDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
-                        {{ Form::text('keywords', '', ['type' => 'search', 'class' => 'form-control', 'placeholder' => 'タイトル・内容']) }}
-                        {{ Form::submit('search', ['class' => 'btn']) }}
-                        {{ Form::close() }}
-                    </div>
+            <div class="button_add">
+                            <!-- ↓日付絞り込み機能 -->
+                            {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
+                            <div class="form-inline">
+                            <span>日付絞り込み</span>
+                                {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
+                            {{ Form::date('fromDate', $fromDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+                                <span>〜</span>  {{ Form::date('toDate', $toDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
+                                {{ Form::text('keywords', '', ['type' => 'search', 'class' => 'form-control', 'placeholder' => 'タイトル・内容']) }}
+                                {{ Form::submit('search', ['class' => 'btn']) }}
+                            {{ Form::close() }}
+                </div>  
         </div>
 
         <div class="container">
