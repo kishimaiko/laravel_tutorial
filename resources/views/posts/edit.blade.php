@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container">
                     {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
                     <div>
                         {{ Form::text('title', $post->title) }}

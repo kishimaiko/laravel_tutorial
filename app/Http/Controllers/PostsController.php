@@ -59,11 +59,10 @@ public function index(Request $request)
     // ログイン機能実装
 
 
-   public function create()
+    public function create()
     {
         $post = new Post();
-
-        return view('posts.create', compact('post'));
+        return view('posts.create',compact('post'));
     }
 
    public function edit(Post $post)
@@ -95,19 +94,8 @@ public function index(Request $request)
         $post ->save();
         $request->session()->flash('message','記事の登録が完了しました。');
         
-         return redirect()->route('posts.show',[$post->id]); 
+        return redirect()->route('posts.show', [$post->id]);
          return redirect()->route('posts.index'); 
     }
     
 }
-
-// {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
-//             <div class="form-inline">
-//               <span>日付絞り込み</span>
-//                 {{ Form::checkbox('dateCheck', 'true', false, ['id'=> 'date_check']) }}
-//                {{ Form::date('fromDate', $fromDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
-//                   <span>〜</span>  {{ Form::date('toDate', $toDate, ['class' => 'form-control','placeholder' => 'YYYY/MM/DD']) }}
-//                 {{ Form::text('keywords', '', ['type' => 'search', 'class' => 'form-control', 'placeholder' => 'タイトル・内容']) }}
-//                 {{ Form::submit('search', ['class' => 'btn']) }}
-//             </div>
-// {{ Form::close() }}

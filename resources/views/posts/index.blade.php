@@ -3,7 +3,7 @@
 @section('app')
 
     <div class="container-fluid">
-        <div class="row p-3 mb-2 bg-info text-white">
+        <div class="p-3 mb-2 bg-info text-white">
               <h1>blog list</h1>
         </div>
     </div>
@@ -12,7 +12,7 @@
             <div class="table-responsive">
                     <table class="table">
                             <tr>
-                                    <th>タイトル</th><<th>内容</th><th>日付</th>
+                                    <th>タイトル</th><<th>編集</th><th>消去</th>
                             </tr>
                             @foreach ($posts as $post)
                             <tr>
@@ -74,12 +74,9 @@
             </li> -->
 
 
-
         <div class="container-fluid">
             <div class="p-3 mb-2 bg-info text-white">
-
-                        <div class="row">
-                            <div class="button_add">
+                         <div class="button_add"> 
                                     <!-- ↓日付絞り込み機能 -->
                                     <div class="form-inline">
                                     {{ Form::open(['route'=> 'posts.index', 'method' => 'get']) }}
@@ -91,22 +88,11 @@
                                         {{ Form::submit('search', ['class' => 'btn']) }}
                                     {{ Form::close() }}
                                     </div>
-                                </div>
-                        </div>
-
-
-
-                        <div class="p-3 mb-2 bg-info text-white">
-                            <div class="row">
-                                <div class="button_add">
+                            </div>
                                     <div class="paginate">
                                                 {{ $posts->links() }}
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-    
-            </div>
+                </div>
         </div>
 
 
