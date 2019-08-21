@@ -8,24 +8,33 @@
         </div>
     </div>
 
-        <div class="container-fluid">
-            <p><span class="title_list">タイトル</span><span class="title_list">日付</span></p>
-                    <ul class="list-group">
-                        @foreach ($posts as $post)
-                                <li class="list-group-item">
-                                        {{ link_to_route('posts.show', $post->title, [$post->id]) }}
-                                    <span class="badge badge-secondary">
-                                        {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
-                                    </span>
-                                    <span class="badge badge-danger">
-                                        {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
-                                            <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
-                                        {{ Form::close() }}
-                                    </span>
-                                </li>
-                        @endforeach
-                    </ul>
+    <div class="container">
+            <div class="table-responsive">
+                    <table class="table">
+                            <tr>
+                                    <th>タイトル</th><<th>内容</th><th>日付</th>
+                            </tr>
+                            @foreach ($posts as $post)
+                            <tr>
+                                        <td> {{ link_to_route('posts.show', $post->title, [$post->id]) }}</td> 
+                                        <td> <span class="badge badge-secondary">
+                                                {{ link_to_route('posts.edit', '[Edit]', [$post->id]) }}
+                                                </span>
+                                        </td> 
+                                        <td><span class="badge badge-danger">
+                                                {{ Form::open(['route' => ['posts.destroy', $post->id], 'method' => 'delete', 'name' => 'delete_' . $post->id, 'style' => 'display:inline;']) }}
+                                                    <a href="javascript:document.{{ 'delete_' . $post->id }}.submit()" onclick="return confirm('削除しますか？');">[Delete]</a>
+                                                {{ Form::close() }}
+                                                </span>
+                                        </td> 
+                                </tr>
+                            @endforeach
+                    </table>
             </div>
+    </div>
+                                 
+                           
+ 
 
             <div class="container-fluid">
                     <div class="button_add">

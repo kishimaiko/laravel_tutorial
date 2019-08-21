@@ -5,12 +5,12 @@
 
 
     <div class="p-3 mb-2 bg-info text-white">
-        <div class="container">
+        <div class="container-fluid">
                 <h1>blog.edit</h1>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
                     {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
                     <div>
                         {{ Form::text('title', $post->title) }}
