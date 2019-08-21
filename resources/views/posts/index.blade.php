@@ -2,13 +2,13 @@
 
 @section('app')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row p-3 mb-2 bg-info text-white">
               <h1>blog list</h1>
         </div>
     </div>
 
-        <div class="container">
+        <div class="container-fluid">
             <p><span class="title_list">タイトル</span><span class="title_list">日付</span></p>
                     <ul class="list-group">
                         @foreach ($posts as $post)
@@ -27,7 +27,7 @@
                     </ul>
             </div>
 
-            <div class="container">
+            <div class="container-fluid">
                     <div class="button_add">
                             <div class="float-left">
                                 <button type="button" class="btn btn-outline-info">
@@ -66,7 +66,7 @@
 
 
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="p-3 mb-2 bg-info text-white">
 
                         <div class="row">
