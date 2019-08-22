@@ -53,15 +53,15 @@
 
 
 
-                @if (Session::has('flash_message'))
+            @if (Session::has('flash_message'))
                         {{ Session::get('flash_message') }}
                 @endif
 
-            <!-- 　@if(Session::has('message')) -->
-            <!-- <div class="alert alert-success"> -->
-                <!-- {{ session('message') }} -->
-            <!-- </div> -->
-            <!-- 　@endif -->
+            　@if(Session::has('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+            　@endif
 
             <!-- \Session::flash('flash_message', '記事を更新しました。'); -->
 

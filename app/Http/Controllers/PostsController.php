@@ -67,13 +67,21 @@ public function index(Request $request)
 
    public function edit(Post $post)
     {
-        return view('posts.edit', compact('post'));
+        return view('posts.edit',compact('post'));
+        // return view('posts.edit', compact('post'));
     }
 
     public function update(validationPost $request, Post $post)
     {
-        $post->update($request->all());
+        // $post->update($request->all());
+        // return redirect()->route('posts.index');
 
+        $this->validate($request, [
+            'title' => 'required|max:30'
+        ]);
+        $post->update($request->all());
+        // \Session::flash('flash_message', '記事を更新しました。');
+        // return redirect('/');
         return redirect()->route('posts.index');
     }
    public function destroy(Post $post)
@@ -93,8 +101,9 @@ public function index(Request $request)
         $post = Post::create($request->all());
         $post ->save();
         $request->session()->flash('message','記事の登録が完了しました。');
+        return redirect()->route('posts.show',[$post->id]);
         
-        return redirect()->route('posts.show', [$post->id]);
+        // return redirect()->route('posts.show', [$post->id]);
          return redirect()->route('posts.index'); 
     }
     

@@ -41,12 +41,16 @@
 
 
 
-    @if($errors->has('title'))
-                <span class="text-danger">{{ $errors->first('title') }}</span>
-                @endif
-                @if($errors->has('content'))
-                <span class="text-danger">{{ $errors->first('content') }}</span>
-                @endif
+        @if($errors->has('title'))
+            <span class="text-danger">{{ $errors->first('title') }}</span>
+        @endif
+        @if($errors->has('content'))
+            <span class="text-danger">{{ $errors->first('content') }}</span>
+        @endif
+
+        @if(Session::has('flash_message'))
+            {{ Session::get('flash_message') }}
+        @endif
 
 
 
