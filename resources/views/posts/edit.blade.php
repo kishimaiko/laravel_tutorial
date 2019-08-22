@@ -3,14 +3,17 @@
 @section('app')
 
 
+    <div class="container-fluid">
+    <div class="buttan_add">
+        <div class="p-3 mb-2 bg-info text-white">
 
-    <div class="p-3 mb-2 bg-info text-white">
-        <div class="container-fluid">
-                <h1>blog.edit</h1>
+
+                    <h1>blog.edit</h1>
+            </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
                     {{ Form::open(['route' => ['posts.update', $post->id], 'method' => 'put']) }}
                     <div>
                         {{ Form::text('title', $post->title) }}
@@ -35,9 +38,14 @@
 
     </div>
 
-    <div class="p-3 mb-2 bg-info text-white">
-        <div class="button_add">
-        </div>
-    </div>
+    <div class="container-fluid">
+                  <div class="p-3 mb-2 bg-info text-white">
+                        <div class="button_add">
+                              <div class=float-right>
+                                    <p>tutorial_lesson</p>
+                              </div>
+                        </div>
+                  </div>
+      </div>
 
 @endsection

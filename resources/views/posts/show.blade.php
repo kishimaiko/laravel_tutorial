@@ -1,7 +1,17 @@
 @extends('layouts.app')
 @section('app')
 
-    <div class="container">
+
+      <div class="container-fluid">
+            <div class="p-3 mb-2 bg-info text-white">
+                  <div class="buttan_add">
+                        <h1>blog</h1>
+                  </div>
+            </div>
+      </div>
+
+
+    <div class="container-fluid">
             <h2>{{ $post->title }}</h2>
             <p>{{ $post->content }}</p>
     </div>
@@ -26,7 +36,7 @@
       </div>
   
   
-      <div class="container">
+      <div class="container-fluid">
                   <div class="p-3 mb-2 bg-info text-white">
                         <div class="button_add">
                               <div class=float-right>
